@@ -1,63 +1,58 @@
-const path = require('path');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const WriteFilePlugin   = require('write-file-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require("path");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+const WriteFilePlugin = require("write-file-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
-const root = path.resolve(__dirname, '..');
+const root = path.resolve(__dirname, "..");
 
 module.exports = {
-    context: path.resolve(root, 'src'),
+    context: path.resolve(root, "src"),
     entry: {
-        app: './index.tsx'
+        app: "./index.tsx"
     },
     output: {
-        path: path.resolve(root, 'dist'),
-        filename: 'js/[name].js'
+        path: path.resolve(root, "dist"),
+        filename: "js/[name].js"
     },
     module: {
         rules: [
             {
-                loader: 'html-loader',
+                loader: "html-loader",
                 test: /\.html$/
             },
             {
                 test: /\.(gif|png|jpg|eot|wof|woff|woff2|ttf|svg)$/,
                 use: [
                     {
-                      loader: 'url-loader',
-                      options: {
-                        limit: 100 * 1024,
-                        name: './assets/[name].[ext]'
-                      }
+                        loader: "url-loader",
+                        options: {
+                            limit: 100 * 1024,
+                            name: "./assets/[name].[ext]"
+                        }
                     }
                 ]
             }
         ]
     },
     devServer: {
-        contentBase: path.resolve(root, 'dist')
+        contentBase: path.resolve(root, "dist")
     },
     resolve: {
-        extensions: [
-            '.js', '.jsx', '.ts', '.tsx',
-            '.html'
-        ],
-        plugins: [
-            new TsconfigPathsPlugin({ configFile: './tsconfig.json' })
-        ]
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".html"],
+        plugins: [new TsconfigPathsPlugin({ configFile: "../tsconfig.json" })]
     },
     plugins: [
         new WriteFilePlugin(),
         new HtmlWebpackPlugin({
-            template: './index.html',
-            filename: './index.html'
+            template: "./index.html",
+            filename: "./index.html"
         }),
         new CopyWebpackPlugin([
             {
-                from: 'assets',
-                to: 'assets'
+                from: "assets",
+                to: "assets"
             }
         ])
     ]
-}
+};

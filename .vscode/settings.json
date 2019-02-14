@@ -1,0 +1,12 @@
+{
+    "eslint.autoFixOnSave": true,
+    "eslint.run": "onSave",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "prettier.eslintIntegration": true,
+    "editor.formatOnSave": true
+}

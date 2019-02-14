@@ -1,0 +1,41 @@
+{
+    "root": true,
+    "plugins": [
+        "@typescript-eslint",
+        "react",
+        "jest",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "env": {
+        "es6": true,
+        "browser": true,
+        "jest/globals": true
+    },
+    "extends":[
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "prettier/react",
+        "prettier/standard"
+    ],
+    "rules": {},
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        },
+        "import/resolver": {
+            "node": {
+                "paths": ["src"],
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    }
+}

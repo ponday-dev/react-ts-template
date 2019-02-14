@@ -20,6 +20,18 @@ module.exports = {
             {
                 loader: 'html-loader',
                 test: /\.html$/
+            },
+            {
+                test: /\.(gif|png|jpg|eot|wof|woff|woff2|ttf|svg)$/,
+                use: [
+                    {
+                      loader: 'url-loader',
+                      options: {
+                        limit: 100 * 1024,
+                        name: './assets/[name].[ext]'
+                      }
+                    }
+                ]
             }
         ]
     },

@@ -14,7 +14,15 @@ module.exports = merge(common, {
                         sourceMap: true
                     }
                 }
-            }
+            },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                  'style-loader',
+                  'css-loader',
+                  'sass-loader',
+                ],
+              }
         ]
     },
 });

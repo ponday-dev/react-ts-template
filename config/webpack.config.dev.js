@@ -1,28 +1,28 @@
-const merge = require("webpack-merge");
-const common = require("./webpack.config");
+const merge = require('webpack-merge');
+const common = require('./webpack.config');
 
 module.exports = merge(common, {
-    mode: "development",
-    devtool: "source-map",
+    mode: 'development',
+    devtool: 'source-map',
     module: {
         rules: [
             {
-                loader: "ts-loader",
+                loader: 'ts-loader',
                 test: /\.ts[x]?$/,
                 options: {
                     compilerOptions: {
-                        sourceMap: true
-                    }
-                }
+                        sourceMap: true,
+                    },
+                },
             },
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    "style-loader",
-                    { loader: "css-loader", options: { sourceMap: true } },
-                    { loader: "sass-loader", options: { sourceMap: true } }
-                ]
-            }
-        ]
-    }
+                    'style-loader',
+                    { loader: 'css-loader', options: { sourceMap: true } },
+                    { loader: 'sass-loader', options: { sourceMap: true } },
+                ],
+            },
+        ],
+    },
 });

@@ -4,6 +4,10 @@ const common = require('./webpack.config');
 module.exports = merge(common, {
     mode: 'development',
     devtool: 'source-map',
+    output: {
+        filename: 'js/[name].js',
+        chunkFilename: 'js/[name].chunk.js',
+    },
     module: {
         rules: [
             {

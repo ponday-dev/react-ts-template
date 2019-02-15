@@ -16,12 +16,11 @@ module.exports = {
     },
     output: {
         path: path.resolve(root, 'dist'),
-        filename: 'js/[name].js',
     },
     module: {
         rules: [
             {
-                loader: 'html-loader',
+                use: [{ loader: 'html-loader', options: { minimize: true } }],
                 test: /\.html$/,
             },
             {
@@ -63,4 +62,20 @@ module.exports = {
             },
         ]),
     ],
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            name: false,
+        },
+        runtimeChunk: true,
+    },
+    node: {
+        module: 'empty',
+        dgram: 'empty',
+        dns: 'mock',
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty',
+        child_process: 'empty',
+    },
 };

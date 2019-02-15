@@ -1,10 +1,13 @@
 const path = require("path");
+const webpack = require("webpack");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const WriteFilePlugin = require("write-file-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const dotenv = require("./env");
 
 const root = path.resolve(__dirname, "..");
+const env = dotenv();
 
 module.exports = {
     context: path.resolve(root, "src"),
@@ -40,9 +43,14 @@ module.exports = {
     },
     resolve: {
         extensions: [".js", ".jsx", ".ts", ".tsx", ".html"],
-        plugins: [new TsconfigPathsPlugin({ configFile: "../tsconfig.json" })]
+        plugins: [
+            new TsconfigPathsPlugin({
+                configFile: path.resolve(root, "tsconfig.json")
+            })
+        ]
     },
     plugins: [
+        new webpack.DefinePlugin(env),
         new WriteFilePlugin(),
         new HtmlWebpackPlugin({
             template: "./index.html",

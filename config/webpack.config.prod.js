@@ -1,34 +1,26 @@
-const merge = require('webpack-merge');
-const common = require('./webpack.config');
+const merge = require("webpack-merge");
+const common = require("./webpack.config");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = merge(common, {
-    mode: 'production',
+    mode: "production",
     module: {
         rules: [
             {
-                loader: 'ts-loader',
+                loader: "ts-loader",
                 test: /\.ts[x]?$/
             },
             {
                 test: /\.(sa|sc|c)ss$/,
-                use: [
-                  MiniCssExtractPlugin.loader,
-                  'css-loader',
-                  'sass-loader',
-                ],
+                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
             }
         ]
     },
-    plugins: [
-        new MiniCssExtractPlugin({filename: './[name].css'}),
-    ],
+    plugins: [new MiniCssExtractPlugin({ filename: "./[name].css" })],
     optimization: {
-        minimizer: [
-            new TerserPlugin({}),
-            new OptimizeCSSAssetsPlugin({})
-        ],
-    },
+        minimize: true,
+        minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})]
+    }
 });

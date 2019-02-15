@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean && NODE_ENV=prodction webpack --config ./config/webpack.config.prod.js",
+    "build": "npm run clean && NODE_ENV=production webpack --config ./config/webpack.config.prod.js",
     "start": "NODE_ENV=development webpack-dev-server --config ./config/webpack.config.dev.js --open",
     "lint": "eslint -c ./.eslintrc.json --fix 'src/**/*.{ts,tsx}'",
     "test": "jest",

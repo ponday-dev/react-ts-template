@@ -29,7 +29,9 @@
         "jsxBracketSameLine": true,
         "parser": "typescript"
       }
-    ]
+    ],
+    "react/prop-types": "off",
+    "no-unused-vars": "off"
   },
   "parserOptions": {
     "ecmaVersion": 2018,

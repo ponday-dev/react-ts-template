@@ -30,7 +30,7 @@ module.exports = {
                         loader: 'url-loader',
                         options: {
                             limit: 100 * 1024,
-                            name: './assets/[name].[ext]',
+                            name: path.resolve(root, 'assets', '[name].[ext]'),
                         },
                     },
                 ],
@@ -39,6 +39,7 @@ module.exports = {
     },
     devServer: {
         contentBase: path.resolve(root, 'dist'),
+        historyApiFallback: true,
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.html'],
@@ -57,7 +58,7 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             {
-                from: 'assets',
+                from: path.resolve(root, 'assets'),
                 to: 'assets',
             },
         ]),
@@ -65,7 +66,7 @@ module.exports = {
     optimization: {
         splitChunks: {
             chunks: 'all',
-            name: false,
+            name: 'vendor',
         },
         runtimeChunk: true,
     },

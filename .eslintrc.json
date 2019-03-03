@@ -35,10 +35,8 @@
     "no-dupe-class-members": "off",
     "no-unused-vars": "off",
     "no-useless-constructor": "off",
-    "indent": "off",
     "@typescript-eslint/no-useless-constructor": "error",
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/indent": "error"
+    "@typescript-eslint/no-unused-vars": "error"
   },
   "parserOptions": {
     "ecmaVersion": 2018,

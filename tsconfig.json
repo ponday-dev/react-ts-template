@@ -2,22 +2,24 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
+    "baseUrl": "./",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
     "isolatedModules": false,
     "jsx": "react",
     "lib": ["dom", "dom.iterable", "es2018"],
     "module": "esnext",
     "moduleResolution": "node",
+    "noEmit": false,
     "outDir": "dist",
     "resolveJsonModule": true,
     "strict": true,
     "paths": {
-      "~/*": ["*"]
+      "~/*": ["src/*"]
     },
     "target": "es2015"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "exclude": ["node_modules"]
 }

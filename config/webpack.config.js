@@ -39,6 +39,7 @@ module.exports = {
     },
     devServer: {
         contentBase: path.resolve(root, 'dist'),
+        port: 3000,
         historyApiFallback: true,
     },
     resolve: {

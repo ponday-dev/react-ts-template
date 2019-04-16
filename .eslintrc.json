@@ -16,6 +16,7 @@
     "prettier/standard"
   ],
   "rules": {
+    "react/prop-types": "off",
     "prettier/prettier": [
       "error",
       {
@@ -30,7 +31,6 @@
         "parser": "typescript"
       }
     ],
-    "react/prop-types": "off",
     "no-console": "warn",
     "no-dupe-class-members": "off",
     "no-unused-vars": "off",
@@ -55,5 +55,13 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.d.ts"],
+      "rules": {
+        "spaced-comment": "off"
+      }
+    }
+  ]
 }

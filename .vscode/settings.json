@@ -1,12 +1,15 @@
 {
-    "eslint.autoFixOnSave": true,
-    "eslint.run": "onSave",
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact"
-    ],
-    "prettier.eslintIntegration": true,
-    "editor.formatOnSave": true
+  "eslint.run": "onSave",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "editor.formatOnSave": true,
+  "prettier.configPath": "./.eslintrc.json"
 }

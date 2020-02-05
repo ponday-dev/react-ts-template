@@ -1,12 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import { App } from '~/App';
 
 describe('test demo', () => {
     it('test component structure', () => {
-        const app = shallow(<App />);
+        const { getByText } = render(<App />);
 
-        expect(app.find('div').length).toBe(1);
+        expect(getByText('Hello, World')).toBeTruthy();
     });
 });
